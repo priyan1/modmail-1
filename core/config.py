@@ -77,8 +77,8 @@ class ConfigManager:
 
     private_keys = {
         # bot presence
-        "activity_message": "",
-        "activity_type": None,
+        "activity_message": "over the Mods",
+        "activity_type": watching,
         "status": None,
         # dm_disabled 0 = none, 1 = new threads, 2 = all threads
         # TODO: use enum
