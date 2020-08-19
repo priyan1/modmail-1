@@ -75,12 +75,11 @@ class ConfigManager:
         "anon_tag": "Response",
     }
 
-    watching = discord.Activity(type=discord.ActivityType.watching)
     private_keys = {
         # bot presence
-        "activity_message": "over the Mods",
-        "activity_type": watching,
-        "status": None,
+        "activity_message": None,
+        "activity_type": None,
+        "status": "Watching over Mods",
         # dm_disabled 0 = none, 1 = new threads, 2 = all threads
         # TODO: use enum
         "dm_disabled": 0,
