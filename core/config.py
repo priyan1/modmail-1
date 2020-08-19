@@ -75,6 +75,7 @@ class ConfigManager:
         "anon_tag": "Response",
     }
 
+    watchcing = discord.Activity(type=discord.ActivityType.watching)
     private_keys = {
         # bot presence
         "activity_message": "over the Mods",
