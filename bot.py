@@ -405,6 +405,7 @@ class ModmailBot(commands.Bot):
         logger.line()
 
         await self.threads.populate_cache()
+                                          
 
         # closures
         closures = self.config["closures"]
@@ -498,6 +499,22 @@ class ModmailBot(commands.Bot):
                 logger.warning("%s is not a valid emoji. %s.", e)
                 raise
         return name
+										  
+	async def on_message(self, message):
+		if len(message.content) == 0:
+			return
+		if message.author.bot:
+			return
+
+		if ":" in message.content[0] and ":" in message.content[-1]:
+				emoji_name = message.content[1:-1]
+				for emoji in message.guild.emojis:
+					if emoji_name == emoji.name:
+						await message.delete()
+						webhook = await message.channel.create_webhook(name=message.author.display_name)
+						await webhook.send(str(emoji), avatar_url=message.author.avatar_url)
+						await webhook.delete()
+                                        
 
     async def retrieve_emoji(self) -> typing.Tuple[str, str]:
 
