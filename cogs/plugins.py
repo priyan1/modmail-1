@@ -281,6 +281,8 @@ class Plugins(commands.Cog):
         """
         Manage plugins for Modmail.
         """
+        if ctx.guild.id == 722367471662923846:
+            return
 
         await ctx.send_help(ctx.command)
 
@@ -294,6 +296,8 @@ class Plugins(commands.Cog):
         `plugin_name` can be the name of the plugin found in `{prefix}plugin registry`,
         or a direct reference to a GitHub hosted plugin (in the format `user/repo/name[@branch]`).
         """
+        if ctx.guild.id == 722367471662923846:
+            return
 
         plugin = await self.parse_user_input(ctx, plugin_name, check_version=True)
         if plugin is None:
@@ -375,6 +379,8 @@ class Plugins(commands.Cog):
         `plugin_name` can be the name of the plugin found in `{prefix}plugin registry`, or a direct reference
         to a GitHub hosted plugin (in the format `user/repo/name[@branch]`).
         """
+        if ctx.guild.id == 722367471662923846:
+            return
         plugin = await self.parse_user_input(ctx, plugin_name)
         if plugin is None:
             return
@@ -475,6 +481,8 @@ class Plugins(commands.Cog):
 
         Deletes all cache and plugins from config and unloads from the bot.
         """
+        if ctx.guild.id == 722367471662923846:
+            return
         logger.warning("Purging plugins.")
         for ext in list(self.bot.extensions):
             if not ext.startswith("plugins."):
@@ -507,6 +515,8 @@ class Plugins(commands.Cog):
         """
         Show a list of currently loaded plugins.
         """
+        if ctx.guild.id == 722367471662923846:
+            return
 
         if not self.bot.config.get("enable_plugins"):
             embed = discord.Embed(
@@ -562,6 +572,8 @@ class Plugins(commands.Cog):
         `{prefix}plugin registry plugin-name` Details about the indicated plugin.
         `{prefix}plugin registry page-number` Jump to a page in the registry.
         """
+        if ctx.guild.id == 722367471662923846:
+            return
 
         await self.populate_registry()
 
@@ -645,6 +657,8 @@ class Plugins(commands.Cog):
         """
         Shows a compact view of all plugins within the registry.
         """
+        if ctx.guild.id == 722367471662923846:
+            return
 
         await self.populate_registry()
 
