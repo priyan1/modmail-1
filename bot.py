@@ -1240,16 +1240,6 @@ def main():
         pass
 
     bot = ModmailBot()
-	@bot.event
-	async def on_message(message: discord.Message):
-		if ":" in message.content[0] and ":" in message.content[-1]:
-            emoji_name = message.content[1:-1]
-            for emoji in message.guild.emojis:
-                if emoji_name == emoji.name:
-                    await message.delete()
-                    webhook = await message.channel.create_webhook(name=message.author.display_name)
-                    await webhook.send(str(emoji), avatar_url=message.author.avatar_url)
-                    await webhook.delete()
     bot.run()
 
 
